@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router";
 
 const Header = () => {
   return (
-    <div className="navbar px-0 py-4 bg-base-100 shadow-sm">
+    <div className="navbar px-0 py-4 border-b border-[#f2ac084f]">
       <div className="navbar-start">
         <img className="w-10" src={logo} alt="" />
         <Link className="text-2xl font-bold  text-[#f2ac08]">
@@ -41,10 +41,10 @@ const Header = () => {
           <button>Dark</button>
         </div>
         <div className="space-x-4 hidden md:flex">
-          <button className="bg-[#d8fb78] hover:bg-transparent  hover:text-[#d8fb78] border border-[#d8fb78] text-black py-2 px-5 rounded-sm font-semibold">
+          <button className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold">
             <Link to="/login">Login</Link>
           </button>
-          <button className=" text-[#d8fb78] border border-[#d8fb78] hover:bg-[#d8fb78] hover:text-black py-2 px-5 rounded-sm font-semibold">
+          <button className=" text-[#f2ac08] border border-[#f2ac08] hover:bg-[#f2ac08] hover:text-black py-2 px-5 rounded-sm font-semibold">
             <Link to="/signup">Signup</Link>
           </button>
         </div>
