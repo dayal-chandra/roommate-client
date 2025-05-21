@@ -10,7 +10,7 @@ const ErrorPage = () => {
         src={error}
         alt=""
       />
-      <button className="bg-[#d8fb78] rounded-xl py-3 px-8 text-black text-2xl font-bold">
+      <button className="bg-[#d8fb78] rounded-xl py-3 px-8 text-black text-2xl font-semibold">
         <Link to="/">Go to Homepage</Link>
       </button>
     </div>
