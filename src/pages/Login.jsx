@@ -7,13 +7,13 @@ const Login = () => {
     e.preventDefault();
   };
   return (
-    <div>
+    <div className="w-full md:w-1/2 mx-auto">
       <Helmet>
         <title>RoomWala | Login</title>
       </Helmet>
       <form
         onSubmit={handleLogin}
-        className="fieldset bg-base-200 border-base-300 rounded-box w-full max-w-sm mx-auto border py-10 px-5 my-5"
+        className="fieldset bg-base-200 border-base-300 rounded-box w-full border py-10 px-5 my-5"
       >
         <h1 className="text-2xl font-bold text-[#f2ac08] text-center pb-5">
           Login Your Account
@@ -23,7 +23,7 @@ const Login = () => {
         <input
           type="email"
           name="email"
-          className="input"
+          className="input w-full"
           placeholder="Email"
           required
         />
@@ -32,7 +32,7 @@ const Login = () => {
         <input
           type="password"
           name="password"
-          className="input"
+          className="input w-full"
           placeholder="Password"
           required
         />

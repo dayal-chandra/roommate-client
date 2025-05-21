@@ -41,12 +41,16 @@ const Header = () => {
           <button>Dark</button>
         </div>
         <div className="space-x-4 hidden md:flex">
-          <button className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold">
-            <Link to="/login">Login</Link>
-          </button>
-          <button className=" text-[#f2ac08] border border-[#f2ac08] hover:bg-[#f2ac08] hover:text-black py-2 px-5 rounded-sm font-semibold">
-            <Link to="/signup">Signup</Link>
-          </button>
+          <Link to="/login">
+            <button className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold">
+              Login
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button className=" text-[#f2ac08] border border-[#f2ac08] hover:bg-[#f2ac08] hover:text-black py-2 px-5 rounded-sm font-semibold">
+              Signup
+            </button>
+          </Link>
         </div>
         <div>
           <img className="w-12 h-12 rounded-full ml-4" src={user} alt="" />
@@ -71,24 +75,37 @@ const Header = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-44 p-2 shadow right-0"
           >
             <li>
-              <a>Item 1</a>
+              <NavLink to="/" className="rounded-none">
+                Home
+              </NavLink>
             </li>
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+              <NavLink className="rounded-none" to="/add-to-find-roommate">
+                Add to Find Roommate
+              </NavLink>
             </li>
             <li>
-              <a>Item 3</a>
+              <NavLink className="rounded-none" to="/browse-listing">
+                Browse Listing
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="rounded-none" to="/my-listings">
+                My Listings
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="rounded-none" to="/login">
+                Login
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="rounded-none" to="/signup">
+                Signup
+              </NavLink>
             </li>
           </ul>
         </div>
