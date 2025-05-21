@@ -4,8 +4,8 @@
 @plugin "daisyui";
 
 .active {
-  color: #d8fb78;
-  border-bottom: 2px solid #d8fb78;
+  color: #f2ac08;
+  border-bottom: 2px solid #f2ac08;
 }
 
 * {

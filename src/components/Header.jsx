@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "/logo.png";
+import user from "/user.jpg";
 import { Link, NavLink } from "react-router";
 
 const Header = () => {
@@ -7,8 +8,8 @@ const Header = () => {
     <div className="navbar px-0 py-4 bg-base-100 shadow-sm">
       <div className="navbar-start">
         <img className="w-10" src={logo} alt="" />
-        <Link className="text-2xl font-bold  text-[#d8fb78]">
-          Roo<span className="text-[#0b7d31]">m</span>Wala
+        <Link className="text-2xl font-bold  text-[#f2ac08]">
+          Roo<span className="text-[#26a010]">m</span>Wala
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -48,7 +49,7 @@ const Header = () => {
           </button>
         </div>
         <div>
-          <img className="w-12 h-12 rounded-full" src={logo} alt="" />
+          <img className="w-12 h-12 rounded-full ml-4" src={user} alt="" />
         </div>
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
