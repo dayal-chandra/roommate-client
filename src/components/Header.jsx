@@ -8,7 +8,7 @@ const Header = () => {
     <div className="navbar px-0 py-4 border-b border-[#f2ac084f]">
       <div className="navbar-start">
         <img className="w-10" src={logo} alt="" />
-        <Link className="text-2xl font-bold  text-[#f2ac08]">
+        <Link to="/" className="text-2xl font-bold  text-[#f2ac08]">
           Roo<span className="text-[#26a010]">m</span>Wala
         </Link>
       </div>

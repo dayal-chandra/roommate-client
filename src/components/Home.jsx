@@ -6,6 +6,7 @@ import { Navigation } from "swiper/modules";
 import "./swiper.css";
 
 import "swiper/css/navigation";
+import { Helmet } from "react-helmet-async";
 
 const sliders = [
   {
@@ -55,6 +56,10 @@ const sliders = [
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>RoomWala | Home</title>
+      </Helmet>
+
       <div className="py-10">
         <h1 className="text-4xl md:text-5xl lg:text-6xl text-center font-semibold">
           Find Your New Roommate
@@ -88,7 +93,7 @@ const Home = () => {
           modules={[Navigation]}
         >
           {sliders.map((slider) => (
-            <SwiperSlide key={slider.id}>
+            <SwiperSlide key={slider.id} className="py-4">
               <div className="flex flex-col justify-center items-center">
                 <img
                   src={slider.image}

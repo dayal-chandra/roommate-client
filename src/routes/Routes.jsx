@@ -7,6 +7,7 @@ import BrowseListing from "../pages/BrowseListing";
 import MyListing from "../pages/MyListing";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import Terms from "../pages/Terms";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         Component: Signup,
+      },
+      {
+        path: "/terms",
+        Component: Terms,
       },
     ],
   },
