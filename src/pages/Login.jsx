@@ -19,7 +19,7 @@ const Login = () => {
           Login Your Account
         </h1>
 
-        <label className="label text-[16px] text-black">Email</label>
+        <label className="label text-[16px] text-base-content">Email</label>
         <input
           type="email"
           name="email"
@@ -28,7 +28,7 @@ const Login = () => {
           required
         />
 
-        <label className="label text-[16px] text-black">Password</label>
+        <label className="label text-[16px] text-base-content">Password</label>
         <input
           type="password"
           name="password"
@@ -64,7 +64,7 @@ const Login = () => {
 
         <div className="flex items-center w-full my-4">
           <hr className="w-full dark:text-gray-600" />
-          <p className="px-3 dark:text-gray-600">OR</p>
+          <p className="px-3 text-base-content">OR</p>
           <hr className="w-full dark:text-gray-600" />
         </div>
 

@@ -21,7 +21,7 @@ const Signup = () => {
           Please Signup
         </h1>
 
-        <label className="label text-[16px] text-black">Name</label>
+        <label className="label text-[16px] text-base-content">Name</label>
         <input
           type="text"
           name="name"
@@ -29,7 +29,7 @@ const Signup = () => {
           placeholder="Your Name"
           required
         />
-        <label className="label text-[16px] text-black">Photo URL</label>
+        <label className="label text-[16px] text-base-content">Photo URL</label>
         <input
           type="text"
           name="photo"
@@ -37,7 +37,7 @@ const Signup = () => {
           placeholder="Photo URL"
           required
         />
-        <label className="label text-[16px] text-black">Email</label>
+        <label className="label text-[16px] text-base-content">Email</label>
         <input
           type="email"
           name="email"
@@ -46,7 +46,7 @@ const Signup = () => {
           required
         />
 
-        <label className="label text-[16px] text-black">Password</label>
+        <label className="label text-[16px] text-base-content">Password</label>
         <div className="relative">
           <input
             type={showPassword ? "text" : "password"}
@@ -84,7 +84,7 @@ const Signup = () => {
 
         <div className="flex items-center w-full my-4">
           <hr className="w-full dark:text-gray-600" />
-          <p className="px-3 dark:text-gray-600">OR</p>
+          <p className="px-3 text-base-content">OR</p>
           <hr className="w-full dark:text-gray-600" />
         </div>
 
