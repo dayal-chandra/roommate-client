@@ -4,6 +4,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
 import "./swiper.css";
+import citya from "/city-1.jpg";
+import cityb from "/city-2.jpg";
+import cityc from "/city-3.jpg";
+import cityd from "/city-4.jpg";
 
 import "swiper/css/navigation";
 import { Helmet } from "react-helmet-async";
@@ -108,6 +112,91 @@ const Home = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+      <div className="py-20">
+        <h1 className="text-center text-2xl text-black md:text-4xl lg:text-6xl bg-[#f2ac08] py-10">
+          Finding a roommate should be hassle free.
+        </h1>
+      </div>
+
+      <div>
+        <h1 className="text-center text-2xl md:text-4xl py-10">
+          Find Roommates Across Bangladesh
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-5">
+          <div className="relative group overflow-hidden aspect-[4/3]">
+            <img
+              className="w-full h-full object-cover rounded-2xl"
+              src={cityd}
+              alt=""
+            />
+            <div
+              className="absolute inset-0 flex items-center justify-center 
+             opacity-100 translate-y-0 
+             md:opacity-0 md:translate-y-full 
+             group-hover:md:translate-y-0 group-hover:md:opacity-100 
+             transition-all duration-500"
+            >
+              <h1 className="text-2xl text-center font-semibold text-black w-full bg-[#f2ac08c9]">
+                Dhaka
+              </h1>
+            </div>
+          </div>
+          <div className="relative group overflow-hidden aspect-[4/3]">
+            <img
+              className="w-full h-full object-cover rounded-2xl"
+              src={citya}
+              alt=""
+            />
+            <div
+              className="absolute inset-0 flex items-center justify-center 
+             opacity-100 translate-y-0 
+             md:opacity-0 md:translate-y-full 
+             group-hover:md:translate-y-0 group-hover:md:opacity-100 
+             transition-all duration-500"
+            >
+              <h1 className="text-2xl text-center font-semibold text-black w-full bg-[#f2ac08c9]">
+                Chittagong
+              </h1>
+            </div>
+          </div>
+          <div className="relative group overflow-hidden aspect-[4/3]">
+            <img
+              className="w-full h-full object-cover rounded-2xl"
+              src={cityb}
+              alt=""
+            />
+            <div
+              className="absolute inset-0 flex items-center justify-center 
+             opacity-100 translate-y-0 
+             md:opacity-0 md:translate-y-full 
+             group-hover:md:translate-y-0 group-hover:md:opacity-100 
+             transition-all duration-500"
+            >
+              <h1 className="text-2xl text-center font-semibold text-black w-full bg-[#f2ac08c9]">
+                Shylet
+              </h1>
+            </div>
+          </div>
+          <div className="relative group overflow-hidden aspect-[4/3]">
+            <img
+              className="w-full h-full object-cover rounded-2xl"
+              src={cityc}
+              alt=""
+            />
+            <div
+              className="absolute inset-0 flex items-center justify-center 
+             opacity-100 translate-y-0 
+             md:opacity-0 md:translate-y-full 
+             group-hover:md:translate-y-0 group-hover:md:opacity-100 
+             transition-all duration-500"
+            >
+              <h1 className="text-2xl text-center font-semibold text-black w-full bg-[#f2ac08c9]">
+                Rangpur
+              </h1>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="py-30">
@@ -218,11 +307,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="pb-20">
-        <h1 className="text-center text-2xl text-black md:text-4xl lg:text-6xl bg-[#f2ac08] py-10">
-          Finding a roommate should be hassle free.
-        </h1>
       </div>
     </div>
   );
