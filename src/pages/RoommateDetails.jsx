@@ -5,7 +5,8 @@ import { useLoaderData, useParams } from "react-router";
 const RoommateDetails = () => {
   const roommates = useLoaderData();
   const { id } = useParams();
-  const roommate = roommates.find((mate) => mate._id === id);
+  const roommate = roommates.find((mate) => mate._id?.toString() === id);
+
   const {
     name,
     email,

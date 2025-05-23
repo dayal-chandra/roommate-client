@@ -58,7 +58,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink className="rounded-none" to="/browse-listing">
-              Browse Listing
+              Browse Listings
             </NavLink>
           </li>
           <li>
@@ -167,7 +167,7 @@ const Header = () => {
             </li>
             <li>
               <NavLink className="rounded-none" to="/browse-listing">
-                Browse Listing
+                Browse Listings
               </NavLink>
             </li>
             <li>
