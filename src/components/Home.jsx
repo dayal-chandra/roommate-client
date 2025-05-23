@@ -60,6 +60,7 @@ const Home = () => {
   useEffect(() => {
     document.title = "RoomWala | Home";
   });
+
   return (
     <div>
       <div className="py-10">

@@ -26,6 +26,7 @@ const Login = () => {
             showConfirmButton: false,
             timer: 2500,
           });
+          form.reset();
         }
       })
       .catch((error) => {

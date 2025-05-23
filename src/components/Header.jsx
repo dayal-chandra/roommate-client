@@ -1,11 +1,39 @@
-import React from "react";
+import React, { use } from "react";
 import logo from "/logo.png";
-import user from "/user.jpg";
+import userImg from "/user.jpg";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Header = () => {
+  const { user, logOut } = use(AuthContext);
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Logout successful.",
+          showConfirmButton: false,
+          timer: 2500,
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: `${error.message}`,
+          showConfirmButton: false,
+          timer: 2500,
+        });
+      });
+
+    console.log("User trying to logout");
+  };
+
   return (
     <div className="navbar px-0 py-4 border-b border-[#f2ac084f]">
+      <h1>{user && user.email}</h1>
       <div className="navbar-start">
         <img className="w-10" src={logo} alt="" />
         <Link to="/" className="text-2xl font-bold  text-[#f2ac08]">
@@ -40,20 +68,30 @@ const Header = () => {
         <div>
           <button>Dark</button>
         </div>
-        <div className="space-x-4 hidden md:flex">
-          <Link to="/login">
-            <button className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold">
-              Login
-            </button>
-          </Link>
-          <Link to="/signup">
-            <button className=" text-[#f2ac08] border border-[#f2ac08] hover:bg-[#f2ac08] hover:text-black py-2 px-5 rounded-sm font-semibold">
-              Signup
-            </button>
-          </Link>
-        </div>
+        {user ? (
+          <button
+            onClick={handleLogout}
+            className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold"
+          >
+            Logout
+          </button>
+        ) : (
+          <div className="space-x-4 hidden md:flex">
+            <Link to="/login">
+              <button className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold">
+                Login
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button className=" text-[#f2ac08] border border-[#f2ac08] hover:bg-[#f2ac08] hover:text-black py-2 px-5 rounded-sm font-semibold">
+                Signup
+              </button>
+            </Link>
+          </div>
+        )}
+
         <div>
-          <img className="w-12 h-12 rounded-full ml-4" src={user} alt="" />
+          <img className="w-12 h-12 rounded-full ml-4" src={userImg} alt="" />
         </div>
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

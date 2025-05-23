@@ -9,7 +9,7 @@ const Signup = () => {
     document.title = "RoomWala | Signup";
   }, []);
 
-  const { createUser } = use(AuthContext);
+  const { createUser, setUser } = use(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -33,6 +33,7 @@ const Signup = () => {
             timer: 2500,
           });
         }
+        setUser(result.user);
       })
       .catch((error) => {
         if (error) {
