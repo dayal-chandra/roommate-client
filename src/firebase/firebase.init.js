@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA29zBlUWQUab13lhTM8MoIcvYJ5Sv-HC8",
-  authDomain: "room-wala.firebaseapp.com",
-  projectId: "room-wala",
-  storageBucket: "room-wala.firebasestorage.app",
-  messagingSenderId: "1049599895967",
-  appId: "1:1049599895967:web:b2299d51be02fc667635aa",
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 const app = initializeApp(firebaseConfig);
