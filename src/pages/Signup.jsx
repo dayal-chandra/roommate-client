@@ -9,22 +9,22 @@ const Signup = () => {
     document.title = "RoomWala | Signup";
   }, []);
 
-  const { createUser, setUser } = use(AuthContext);
+  const { createUser, setUser, updateUser } = use(AuthContext);
 
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
-    const formData = new FormData(form);
-    const { email, password, ...restInfo } = Object.fromEntries(
-      formData.entries()
-    );
-    // console.log(email, password, restInfo);
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
 
     createUser(email, password)
       .then((result) => {
-        if (result.user) {
+        const user = result.user;
+        if (user) {
           Swal.fire({
             position: "center",
             icon: "success",
@@ -33,7 +33,15 @@ const Signup = () => {
             timer: 2500,
           });
         }
-        setUser(result.user);
+
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
       })
       .catch((error) => {
         if (error) {

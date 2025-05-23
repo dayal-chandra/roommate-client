@@ -1,5 +1,5 @@
 import React, { use, useEffect } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -9,6 +9,8 @@ const Login = () => {
   }, []);
 
   const { loginUser } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ const Login = () => {
             timer: 2500,
           });
           form.reset();
+          navigate(`${location.state ? location.state : "/"}`);
         }
       })
       .catch((error) => {

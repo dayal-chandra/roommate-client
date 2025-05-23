@@ -4,6 +4,7 @@ import userImg from "/user.jpg";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Tooltip } from "react-tooltip";
 
 const Header = () => {
   const { user, logOut } = use(AuthContext);
@@ -27,8 +28,6 @@ const Header = () => {
           timer: 2500,
         });
       });
-
-    console.log("User trying to logout");
   };
 
   return (
@@ -91,7 +90,18 @@ const Header = () => {
         )}
 
         <div>
-          <img className="w-12 h-12 rounded-full ml-4" src={userImg} alt="" />
+          <img
+            className="w-12 h-12 rounded-full ml-4"
+            src={`${user ? user.photoURL : userImg}`}
+            alt=""
+            // title={`${user ? user.displayName : ""}`}
+            data-tooltip-id="my-tooltip-inline"
+            data-tooltip-content={`${user ? user.displayName : ""}`}
+          />
+          <Tooltip
+            id="my-tooltip-inline"
+            style={{ backgroundColor: "#f2ac08", color: "black" }}
+          />
         </div>
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

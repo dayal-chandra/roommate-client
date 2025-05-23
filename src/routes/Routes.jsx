@@ -34,7 +34,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/my-listings",
-        Component: MyListing,
+        element: (
+          <PrivateRoute>
+            <MyListing></MyListing>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
