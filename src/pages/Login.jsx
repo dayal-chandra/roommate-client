@@ -1,16 +1,49 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
+import React, { use, useEffect } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  useEffect(() => {
+    document.title = "RoomWala | Login";
+  }, []);
+
+  const { loginUser } = use(AuthContext);
+
   const handleLogin = (e) => {
     e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const { email, password } = Object.fromEntries(formData.entries());
+    loginUser(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        if (user) {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Logged in successfully.",
+            showConfirmButton: false,
+            timer: 2500,
+          });
+        }
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+
+        if (error) {
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: `${errorMessage}`,
+            showConfirmButton: false,
+            timer: 2500,
+          });
+        }
+      });
   };
   return (
     <div className="w-full md:w-1/2 mx-auto">
-      <Helmet>
-        <title>RoomWala | Login</title>
-      </Helmet>
       <form
         onSubmit={handleLogin}
         className="fieldset bg-base-200 border-base-300 rounded-box w-full border py-10 px-5 my-5"
@@ -80,7 +113,7 @@ const Login = () => {
           >
             <path d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"></path>
           </svg>
-          <p className="text-[16px]">Login with Google</p>
+          <p className="text-[16px] font-semibold">Login with Google</p>
         </button>
       </form>
     </div>

@@ -1,12 +1,11 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
+import React, { useEffect } from "react";
 
 const MyListing = () => {
+  useEffect(() => {
+    document.title = "RoomWala | MyListing";
+  }, []);
   return (
     <div>
-      <Helmet>
-        <title>RoomWala | MyListing</title>
-      </Helmet>
       <h1>my listing</h1>
     </div>
   );

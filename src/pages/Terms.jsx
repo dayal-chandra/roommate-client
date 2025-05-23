@@ -1,13 +1,12 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
+import React, { useEffect } from "react";
 
 const Terms = () => {
+  useEffect(() => {
+    document.title = "RoomWala | Terms";
+  }, []);
+
   return (
     <div className="py-10">
-      <Helmet>
-        <title>RoomWala | Terms & Conditions</title>
-      </Helmet>
-
       <h1 className="text-center text-3xl font-bold py-5">
         {" "}
         Terms and Conditions

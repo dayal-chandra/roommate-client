@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -10,7 +10,6 @@ import cityc from "/city-3.jpg";
 import cityd from "/city-4.jpg";
 
 import "swiper/css/navigation";
-import { Helmet } from "react-helmet-async";
 
 const sliders = [
   {
@@ -58,12 +57,11 @@ const sliders = [
 ];
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "RoomWala | Home";
+  });
   return (
     <div>
-      <Helmet>
-        <title>RoomWala | Home</title>
-      </Helmet>
-
       <div className="py-10">
         <h1 className="text-4xl md:text-5xl lg:text-6xl text-center font-semibold">
           Find Your New Roommate

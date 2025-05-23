@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col justify-center items-center gap-5 bg-base-200 text-base-content rounded p-10">
+    <footer className="flex flex-col justify-center items-center gap-5 bg-[#f2ac08] text-black rounded p-10">
       <div className="text-center">
         <h1 className="text-[20px] font-semibold">Contact:</h1>
         <p>+8801234567890</p>
