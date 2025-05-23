@@ -9,6 +9,8 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Terms from "../pages/Terms";
 import PrivateRoute from "../provider/PrivateRoute";
+import RoommateDetails from "../pages/RoommateDetails";
+import Loading from "../components/Loading";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +20,8 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        loader: () => fetch("http://localhost:3000/roommates"),
+        hydrateFallbackElement: <Loading></Loading>,
         Component: Home,
       },
       {
@@ -51,6 +55,16 @@ export const router = createBrowserRouter([
       {
         path: "/terms",
         Component: Terms,
+      },
+      {
+        path: "/roommate-details/:id",
+        loader: () => fetch("http://localhost:3000/roommates"),
+        hydrateFallbackElement: <Loading></Loading>,
+        element: (
+          <PrivateRoute>
+            <RoommateDetails></RoommateDetails>
+          </PrivateRoute>
+        ),
       },
     ],
   },

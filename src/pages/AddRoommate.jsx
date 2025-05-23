@@ -1,17 +1,19 @@
-import React, { useEffect } from "react";
+import React, { use, useEffect } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddRoommate = () => {
   useEffect(() => {
     document.title = "RoomWala | Add to find roommate";
   }, []);
 
+  const { user } = use(AuthContext);
+
   const handleAddRoommate = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const addRoommateData = Object.fromEntries(formData.entries());
-    console.log(addRoommateData);
 
     fetch("http://localhost:3000/roommates", {
       method: "POST",
@@ -31,7 +33,7 @@ const AddRoommate = () => {
             timer: 2500,
           });
 
-          form.reset();
+          // form.reset();
         }
       });
   };
@@ -118,7 +120,7 @@ const AddRoommate = () => {
                 <input
                   type="radio"
                   name="availability"
-                  value="yes"
+                  value="Yes"
                   className="radio"
                 />
                 Yes
@@ -128,7 +130,7 @@ const AddRoommate = () => {
                 <input
                   type="radio"
                   name="availability"
-                  value="no"
+                  value="No"
                   className="radio"
                 />
                 No
@@ -141,7 +143,8 @@ const AddRoommate = () => {
               type="email"
               className="input w-full"
               name="email"
-              placeholder="Your Email"
+              value={user ? user.email : ""}
+              readOnly
               required
             />
           </fieldset>{" "}
@@ -151,7 +154,8 @@ const AddRoommate = () => {
               type="text"
               className="input w-full"
               name="name"
-              placeholder="Your Name"
+              value={user ? user.displayName : ""}
+              readOnly
               required
             />
           </fieldset>

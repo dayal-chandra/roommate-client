@@ -10,6 +10,8 @@ import cityc from "/city-3.jpg";
 import cityd from "/city-4.jpg";
 
 import "swiper/css/navigation";
+import { useLoaderData } from "react-router";
+import RoommateCard from "./RoommateCard";
 
 const sliders = [
   {
@@ -59,7 +61,10 @@ const sliders = [
 const Home = () => {
   useEffect(() => {
     document.title = "RoomWala | Home";
-  });
+  }),
+    [];
+
+  const roommates = useLoaderData();
 
   return (
     <div>
@@ -112,10 +117,20 @@ const Home = () => {
           ))}
         </Swiper>
       </div>
+
       <div className="py-20">
         <h1 className="text-center text-2xl text-black md:text-4xl lg:text-6xl bg-[#f2ac08] py-10">
           Finding a roommate should be hassle free.
         </h1>
+      </div>
+      <h1 className="text-center text-2xl md:text-4xl py-10">
+        Featured Roommates Post
+      </h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-20">
+        {roommates.map((roommate) => (
+          <RoommateCard key={roommate._id} roommate={roommate}></RoommateCard>
+        ))}
       </div>
 
       <div>
