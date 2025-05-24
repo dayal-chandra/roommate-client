@@ -13,7 +13,7 @@ const MyListing = () => {
   const { user } = use(AuthContext);
 
   const roommates = useLoaderData();
-  const addedDataByUser = roommates.filter(
+  const addedDataByUser = roommates?.filter(
     (roommate) => roommate.email === user.email
   );
 
@@ -33,14 +33,17 @@ const MyListing = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log("after delete", data);
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your data has been deleted.",
+                icon: "success",
+              });
+            }
+          })
+          .catch((error) => {
+            console.log(error);
           });
-
-        // Swal.fire({
-        //   title: "Deleted!",
-        //   text: "Your file has been deleted.",
-        //   icon: "success",
-        // });
       }
     });
   };
@@ -71,7 +74,7 @@ const MyListing = () => {
                   <td>{roommatedata.roomType}</td>
                   <td>{roommatedata.rentAmount}/mo</td>
                   <td className="flex justify-around items-center gap-4">
-                    <Link to={`/roommate-details/${roommatedata._id}`}>
+                    <Link to={`/update-roommate/${roommatedata._id}`}>
                       <FaPen size={30} />
                     </Link>
 

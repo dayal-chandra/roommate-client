@@ -11,6 +11,7 @@ import Terms from "../pages/Terms";
 import PrivateRoute from "../provider/PrivateRoute";
 import RoommateDetails from "../pages/RoommateDetails";
 import Loading from "../components/Loading";
+import UpdateRoommate from "../pages/UpdateRoommate";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,16 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <RoommateDetails></RoommateDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update-roommate/:id",
+        loader: () => fetch("http://localhost:3000/browse-listing"),
+        hydrateFallbackElement: <Loading></Loading>,
+        element: (
+          <PrivateRoute>
+            <UpdateRoommate></UpdateRoommate>
           </PrivateRoute>
         ),
       },
