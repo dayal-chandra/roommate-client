@@ -78,7 +78,7 @@ const RoommateDetails = () => {
           </div>
           <div className=" flex flex-col justify-end items-end gap-3">
             <button onClick={handleLikeClick}>
-              <FaThumbsUp size={35} color={showContact ? "#f2ac08" : "black"} />
+              <FaThumbsUp size={35} color={showContact ? "#f2ac08" : "gray"} />
             </button>
             {showContact && <p>{contact}</p>}
             <p>
