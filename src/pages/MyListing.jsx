@@ -56,17 +56,17 @@ const MyListing = () => {
     <div>
       <h1 className="text-center text-2xl md:text-4xl py-10">My Listings</h1>
       <div className="pb-20">
-        <div className="overflow-x-auto rounded-box border border-[#f2ac08] bg-base-100">
-          <table className="table">
+        <div className="overflow-x-auto w-full rounded-box border border-[#f2ac08] bg-base-100">
+          <table className="table w-full">
             {/* head */}
             <thead>
               <tr>
-                <th></th>
+                <th>No.</th>
                 <th>Name</th>
                 <th>Location</th>
                 <th>Room Type</th>
                 <th>Rent</th>
-                <th></th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -77,14 +77,23 @@ const MyListing = () => {
                   <td>{roommatedata.location}</td>
                   <td>{roommatedata.roomType}</td>
                   <td>{roommatedata.rentAmount}/mo</td>
-                  <td className="flex justify-around items-center gap-4">
-                    <Link to={`/update-roommate/${roommatedata._id}`}>
-                      <FaPen size={30} />
-                    </Link>
 
-                    <button onClick={() => handleDelete(roommatedata._id)}>
-                      <MdDelete size={35} />
-                    </button>
+                  <td className="text-right">
+                    <div className="flex justify-start items-center gap-2">
+                      <Link
+                        className="btn text-black bg-[#f2ac08]"
+                        to={`/update-roommate/${roommatedata._id}`}
+                      >
+                        <FaPen size={20} />
+                      </Link>
+
+                      <button
+                        className="btn text-black bg-[#f2ac08]"
+                        onClick={() => handleDelete(roommatedata._id)}
+                      >
+                        <MdDelete size={24} />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
