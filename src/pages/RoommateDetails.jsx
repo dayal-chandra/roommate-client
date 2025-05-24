@@ -57,6 +57,9 @@ const RoommateDetails = () => {
         Roommate Details
       </h1>
       <div className="p-5 md:p-10 w-full md:w-11/12 lg:w-10/12 mx-auto border border-[#f2ac08] rounded-2xl mb-20">
+        <p className="pb-5 text-center">
+          <span>{likeCount}</span> people interested in
+        </p>
         <h1 className="text-[20px] text-center  bg-[#f2ac08] text-black py-2 mb-4">
           {title}
         </h1>
@@ -96,10 +99,6 @@ const RoommateDetails = () => {
               <FaThumbsUp size={35} color={showContact ? "#f2ac08" : "gray"} />
             </button>
             {showContact && <p>{contact}</p>}
-            <p>
-              {" "}
-              <span>{likeCount}</span> people interested in
-            </p>
           </div>
         </div>
       </div>
