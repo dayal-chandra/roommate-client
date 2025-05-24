@@ -1,4 +1,4 @@
-import React, { use, useEffect } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { MdDelete } from "react-icons/md";
@@ -13,7 +13,8 @@ const MyListing = () => {
   const { user } = use(AuthContext);
 
   const roommates = useLoaderData();
-  const addedDataByUser = roommates?.filter(
+  const [buddys, setBuddys] = useState(roommates);
+  const addedDataByUser = buddys?.filter(
     (roommate) => roommate.email === user.email
   );
 
@@ -39,6 +40,9 @@ const MyListing = () => {
                 text: "Your data has been deleted.",
                 icon: "success",
               });
+
+              const remainingBuddys = buddys.filter((bud) => bud._id !== id);
+              setBuddys(remainingBuddys);
             }
           })
           .catch((error) => {
