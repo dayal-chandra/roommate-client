@@ -40,6 +40,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/my-listings",
+        loader: () => fetch("http://localhost:3000/browse-listing"),
+        hydrateFallbackElement: <Loading></Loading>,
         element: (
           <PrivateRoute>
             <MyListing></MyListing>

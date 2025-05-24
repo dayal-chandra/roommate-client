@@ -23,6 +23,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 2500,
         });
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         const errorMessage = error.message;

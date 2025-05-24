@@ -36,9 +36,9 @@ const RoommateDetails = () => {
             <p>
               <span className="font-bold">Email:</span> {email}
             </p>
-            <p>
+            {/* <p>
               <span className="font-bold">Contact:</span> {contact}
-            </p>
+            </p> */}
             <p>
               <span className="font-bold">Location:</span> {location}
             </p>
