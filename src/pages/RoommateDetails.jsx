@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { useLoaderData, useParams } from "react-router";
+import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const RoommateDetails = () => {
   useEffect(() => {
     document.title = "RoomWala | Details";
   }, []);
 
-  const [showContact, setShowContact] = useState(false);
-  const [likeCount, setLikeCount] = useState(0);
-  const [isLiked, setIsLiked] = useState(false);
-  const handleLikeClick = () => {
-    if (!isLiked) {
-      setLikeCount((prev) => prev + 1);
-    } else {
-      setLikeCount((prev) => prev - 1);
-    }
-    setIsLiked(!isLiked);
-    setShowContact(!showContact);
-  };
+  const { user } = use(AuthContext);
 
   const roommates = useLoaderData();
   const { id } = useParams();
@@ -36,6 +27,30 @@ const RoommateDetails = () => {
     contact,
     availability,
   } = roommate;
+
+  const [showContact, setShowContact] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
+
+  const handleLikeClick = () => {
+    if (user.email !== email) {
+      if (!isLiked) {
+        setLikeCount((prev) => prev + 1);
+      } else {
+        setLikeCount((prev) => prev - 1);
+      }
+
+      setIsLiked(!isLiked);
+      setShowContact(!showContact);
+    } else {
+      Swal.fire({
+        title: "Access Denied",
+        text: "You cannot like your own post.",
+        icon: "warning",
+      });
+    }
+  };
+
   return (
     <div>
       <h1 className="text-center text-2xl md:text-4xl py-10">
