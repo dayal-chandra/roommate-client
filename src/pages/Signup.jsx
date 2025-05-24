@@ -49,6 +49,33 @@ const Signup = () => {
     const photo = form.photo.value;
     const password = form.password.value;
 
+    if (password.length < 6) {
+      Swal.fire({
+        title: "Invalid Password",
+        text: "Password must be at least 6 characters long.",
+        icon: "warning",
+      });
+      return;
+    }
+
+    if (!/[A-Z]/.test(password)) {
+      Swal.fire({
+        title: "Invalid Password",
+        text: "Password must contain at least one uppercase letter.",
+        icon: "warning",
+      });
+      return;
+    }
+
+    if (!/[a-z]/.test(password)) {
+      Swal.fire({
+        title: "Invalid Password",
+        text: "Password must contain at least one lowercase letter.",
+        icon: "warning",
+      });
+      return;
+    }
+
     createUser(email, password)
       .then((result) => {
         const user = result.user;
