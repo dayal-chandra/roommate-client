@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { useLoaderData, useParams } from "react-router";
 
@@ -6,6 +6,19 @@ const RoommateDetails = () => {
   useEffect(() => {
     document.title = "RoomWala | Details";
   }, []);
+
+  const [showContact, setShowContact] = useState(false);
+  const [likeCount, setLikeCount] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
+  const handleLikeClick = () => {
+    if (!isLiked) {
+      setLikeCount((prev) => prev + 1);
+    } else {
+      setLikeCount((prev) => prev - 1);
+    }
+    setIsLiked(!isLiked);
+    setShowContact(!showContact);
+  };
 
   const roommates = useLoaderData();
   const { id } = useParams();
@@ -64,8 +77,14 @@ const RoommateDetails = () => {
             </p>
           </div>
           <div className=" flex flex-col justify-end items-end gap-3">
-            <FaThumbsUp size={35} />
-            <p>0 people interested in</p>
+            <button onClick={handleLikeClick}>
+              <FaThumbsUp size={35} color={showContact ? "#f2ac08" : "black"} />
+            </button>
+            {showContact && <p>{contact}</p>}
+            <p>
+              {" "}
+              <span>{likeCount}</span> people interested in
+            </p>
           </div>
         </div>
       </div>
