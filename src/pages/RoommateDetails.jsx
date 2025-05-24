@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaThumbsUp } from "react-icons/fa";
 import { useLoaderData, useParams } from "react-router";
 
 const RoommateDetails = () => {
+  useEffect(() => {
+    document.title = "RoomWala | Details";
+  }, []);
+
   const roommates = useLoaderData();
   const { id } = useParams();
   const roommate = roommates.find((mate) => mate._id?.toString() === id);
