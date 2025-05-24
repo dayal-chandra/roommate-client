@@ -183,7 +183,7 @@ const Header = () => {
                 Logout
               </button>
             ) : (
-              <div className="space-x-4  md:hidden">
+              <div className="md:hidden flex flex-col gap-3">
                 <Link to="/login">
                   <button className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold">
                     Login
