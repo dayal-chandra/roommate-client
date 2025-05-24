@@ -178,12 +178,12 @@ const Header = () => {
             {user ? (
               <button
                 onClick={handleLogout}
-                className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold hidden md:flex"
+                className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold  md:hidden"
               >
                 Logout
               </button>
             ) : (
-              <div className="space-x-4 hidden md:flex">
+              <div className="space-x-4  md:hidden">
                 <Link to="/login">
                   <button className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold">
                     Login
