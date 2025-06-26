@@ -1,6 +1,5 @@
 import React, { use, useEffect } from "react";
 import logo from "/logo.png";
-import userImg from "/user.jpg";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
@@ -37,7 +36,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="navbar px-0 py-4 border-b border-[#f2ac084f]">
+    <div className="navbar px-0 border-b border-[#f2ac084f] sticky top-0 backdrop-blur bg-transparent shadow z-50">
       <div className="navbar-start">
         <img className="w-10" src={logo} alt="" />
         <Link to="/" className="text-2xl font-bold  text-[#f2ac08]">
@@ -51,19 +50,37 @@ const Header = () => {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink className="rounded-none" to="/add-to-find-roommate">
-              Add to Find Roommate
-            </NavLink>
-          </li>
+          {user ? (
+            <li>
+              <NavLink className="rounded-none" to="/add-to-find-roommate">
+                Add to Find Roommate
+              </NavLink>
+            </li>
+          ) : (
+            ""
+          )}
           <li>
             <NavLink className="rounded-none" to="/browse-listing">
               Browse Listings
             </NavLink>
           </li>
+          {user ? (
+            <li>
+              <NavLink className="rounded-none" to="/my-listings">
+                My Listings
+              </NavLink>
+            </li>
+          ) : (
+            ""
+          )}
           <li>
-            <NavLink className="rounded-none" to="/my-listings">
-              My Listings
+            <NavLink className="rounded-none" to="/about-us">
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="rounded-none" to="/contact">
+              Contact
             </NavLink>
           </li>
         </ul>
@@ -120,14 +137,17 @@ const Header = () => {
         )}
 
         <div>
-          <img
-            className="w-12 h-12 rounded-full ml-4"
-            src={`${user ? user.photoURL : userImg}`}
-            alt=""
-            // title={`${user ? user.displayName : ""}`}
-            data-tooltip-id="my-tooltip-inline"
-            data-tooltip-content={`${user ? user.displayName : ""}`}
-          />
+          {user ? (
+            <img
+              className="w-12 h-12 rounded-full ml-4"
+              src={`${user.photoURL}`}
+              alt=""
+              data-tooltip-id="my-tooltip-inline"
+              data-tooltip-content={`${user.displayName}`}
+            />
+          ) : (
+            ""
+          )}
           <Tooltip
             id="my-tooltip-inline"
             style={{ backgroundColor: "#f2ac08", color: "black" }}

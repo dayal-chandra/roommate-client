@@ -169,7 +169,7 @@ const Signup = () => {
         </div>
         <button
           type="submit"
-          className="w-full px-8 py-3 mt-5 font-semibold rounded-md border text-[16px] hover:bg-[#f2ac08]"
+          className="w-full px-8 py-3 mt-5 font-semibold rounded-md border text-[16px] hover:text-black hover:bg-[#f2ac08]"
         >
           Signup
         </button>
@@ -190,7 +190,7 @@ const Signup = () => {
         onClick={handleGoogleLogin}
         aria-label="Login with Google"
         type="submit"
-        className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 hover:bg-[#f2ac08] "
+        className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 hover:bg-[#f2ac08]  hover:text-black"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

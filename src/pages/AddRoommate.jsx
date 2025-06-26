@@ -159,6 +159,16 @@ const AddRoommate = () => {
               required
             />
           </fieldset>
+          <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
+            <label className="text-[16px]">Photo URL</label>
+            <input
+              type="text"
+              className="input w-full"
+              name="photo"
+              placeholder="Photo URL"
+              required
+            />
+          </fieldset>
         </div>
 
         <input

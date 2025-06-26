@@ -12,6 +12,8 @@ import PrivateRoute from "../provider/PrivateRoute";
 import RoommateDetails from "../pages/RoommateDetails";
 import Loading from "../components/Loading";
 import UpdateRoommate from "../pages/UpdateRoommate";
+import AboutUs from "../pages/AboutUs";
+import Contact from "../pages/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +65,14 @@ export const router = createBrowserRouter([
       {
         path: "/terms",
         Component: Terms,
+      },
+      {
+        path: "/about-us",
+        Component: AboutUs,
+      },
+      {
+        path: "/contact",
+        Component: Contact,
       },
       {
         path: "/roommate-details/:id",

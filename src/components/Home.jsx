@@ -1,9 +1,6 @@
 import React, { useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Navigation } from "swiper/modules";
-import "./swiper.css";
+
 import citya from "/city-1.jpg";
 import cityb from "/city-2.jpg";
 import cityc from "/city-3.jpg";
@@ -12,51 +9,9 @@ import cityd from "/city-4.jpg";
 import "swiper/css/navigation";
 import { useLoaderData } from "react-router";
 import RoommateCard from "./RoommateCard";
-
-const sliders = [
-  {
-    id: 1,
-    desc: "Roommate wanted - Malibag",
-    name_age: "Shamim | 38",
-    image: "/slide-1.jpg",
-  },
-  {
-    id: 2,
-    desc: "Roommate wanted - Uttara",
-    name_age: "Dilruba | 35",
-    image: "/slide-2.jpg",
-  },
-  {
-    id: 3,
-    desc: "Roommate wanted - Badda",
-    name_age: "Moklech | 39",
-    image: "/slide-3.jpg",
-  },
-  {
-    id: 4,
-    desc: "Roommate wanted - Mirpur",
-    name_age: "Amanda | 29",
-    image: "/slide-4.jpg",
-  },
-  {
-    id: 5,
-    desc: "Roommate wanted - Khilkhet",
-    name_age: "Kabir | 40",
-    image: "/slide-5.jpg",
-  },
-  {
-    id: 6,
-    desc: "Roommate wanted - Tejgaon",
-    name_age: "Lota | 34",
-    image: "/slide-6.jpg",
-  },
-  {
-    id: 7,
-    desc: "Roommate wanted - Malibag",
-    name_age: "Hamim | 38",
-    image: "/slide-7.jpg",
-  },
-];
+import Slider from "./Slider";
+import CategorySection from "./CategorySection";
+import TopRatedSection from "./TopRatedSection";
 
 const Home = () => {
   useEffect(() => {
@@ -68,66 +23,20 @@ const Home = () => {
 
   return (
     <div>
-      <div className="py-10">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl text-center font-semibold">
-          Find Your New Roommate
-        </h1>
-        <h1 className="text-center text-2xl">
-          From{" "}
-          <span className="text-[#f2ac08] font-semibold">
-            <Typewriter
-              words={["Anywhere", "Anytime", "Anyone"]}
-              loop={true}
-              cursor
-              cursorStyle="_"
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1000}
-            />
-          </span>
-        </h1>
-      </div>
+      <Slider></Slider>
 
-      <div className="max-w-6xl mx-auto px-4">
-        <Swiper
-          slidesPerView={3}
-          spaceBetween={5}
-          navigation={true}
-          breakpoints={{
-            0: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          modules={[Navigation]}
-        >
-          {sliders.map((slider) => (
-            <SwiperSlide key={slider.id} className="py-4">
-              <div className="flex flex-col justify-center items-center">
-                <img
-                  src={slider.image}
-                  alt="slider"
-                  className=" w-10/12 rounded-full object-cover hover:scale-105 transition duration-300"
-                />
-                <p className="text-[20px] font-semibold pt-5">
-                  {slider.name_age}
-                </p>
-                <p className="text-center pb-5">{slider.desc}</p>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-
-      <div className="py-20">
+      <div className="pt-20">
         <h1 className="text-center text-2xl text-black md:text-4xl lg:text-6xl bg-[#f2ac08] py-10">
           Finding a roommate should be hassle free.
         </h1>
       </div>
+
+      <CategorySection></CategorySection>
+
       <h1 className="text-center text-2xl md:text-4xl py-10">
         Featured Roommates Post
       </h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pb-20">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 px-5 pb-20">
         {roommates.map((roommate) => (
           <RoommateCard key={roommate._id} roommate={roommate}></RoommateCard>
         ))}
@@ -137,7 +46,7 @@ const Home = () => {
         <h1 className="text-center text-2xl md:text-4xl py-10">
           Find Roommates Across Bangladesh
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-5 px-5">
           <div className="relative group overflow-hidden aspect-[4/3]">
             <img
               className="w-full h-full object-cover rounded-2xl"
@@ -212,6 +121,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <TopRatedSection></TopRatedSection>
 
       <div className="py-30">
         <h1 className="text-center text-2xl text-black md:text-4xl lg:text-6xl bg-[#f2ac08] py-10">
