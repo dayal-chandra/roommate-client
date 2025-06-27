@@ -17,6 +17,7 @@ import Contact from "../pages/Contact";
 import Dashboard from "../pages/Dashboard";
 import Overview from "../pages/Overview";
 import AllItems from "../pages/AllItems";
+import MyItems from "../pages/MyItems";
 
 export const router = createBrowserRouter([
   {
@@ -114,6 +115,10 @@ export const router = createBrowserRouter([
           {
             path: "all-items",
             element: <AllItems />,
+          },
+          {
+            path: "my-items",
+            element: <MyItems></MyItems>,
           },
         ],
       },

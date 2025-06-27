@@ -7,6 +7,7 @@ const Dashboard = () => {
       <nav className="flex gap-4 mb-6 border-b">
         <Link to="/dashboard">Overview</Link>
         <Link to="/dashboard/all-items">All Items</Link>
+        <Link to="/dashboard/my-items">My Items</Link>
       </nav>
       <Outlet />
     </div>
