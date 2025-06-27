@@ -136,23 +136,39 @@ const Header = () => {
           </div>
         )}
 
-        <div>
-          {user ? (
-            <img
-              className="w-12 h-12 rounded-full ml-4"
-              src={`${user.photoURL}`}
-              alt=""
-              data-tooltip-id="my-tooltip-inline"
-              data-tooltip-content={`${user.displayName}`}
+        <div className="drawer drawer-end">
+          <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content">
+            {/* Profile Picture (acts as drawer trigger) */}
+            {user && (
+              <label htmlFor="my-drawer-4" className="cursor-pointer">
+                <img
+                  className="w-12 h-12 rounded-full ml-4"
+                  src={user.photoURL}
+                  alt="Profile"
+                  data-tooltip-id="my-tooltip-inline"
+                  data-tooltip-content={user.displayName}
+                />
+              </label>
+            )}
+
+            <Tooltip
+              id="my-tooltip-inline"
+              style={{ backgroundColor: "#f2ac08", color: "black" }}
             />
-          ) : (
-            ""
-          )}
-          <Tooltip
-            id="my-tooltip-inline"
-            style={{ backgroundColor: "#f2ac08", color: "black" }}
-          />
+          </div>
+
+          <div className="drawer-side">
+            <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
+            <div className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+              <h2 className="text-xl font-semibold mb-4">User Menu</h2>
+              <p>Name: {user?.displayName}</p>
+              <p>Email: {user?.email}</p>
+              {/* Add links, logout button, etc. here */}
+            </div>
+          </div>
         </div>
+
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg

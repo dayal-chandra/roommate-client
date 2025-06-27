@@ -22,10 +22,10 @@ export default function CategorySection() {
         {categories.map((cat, idx) => (
           <div
             key={idx}
-            className="border border-[#f2ac08] rounded-xl p-4 hover:bg-[#f2ac08] hover:text-white transition cursor-pointer flex flex-col items-center justify-center space-y-2"
+            className="border border-[#f2ac08] rounded-xl p-4 hover:bg-[#f2ac08] hover:text-black transition cursor-pointer flex flex-col items-center justify-center space-y-2"
           >
             <div className="text-3xl">{cat.icon}</div>
-            <h3 className="font-semibold">{cat.title}</h3>
+            <h3 className="font-semibold ">{cat.title}</h3>
           </div>
         ))}
       </div>

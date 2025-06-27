@@ -53,60 +53,6 @@ const RoommateDetails = () => {
   };
 
   return (
-    // <div>
-    //   <h1 className="text-center text-2xl md:text-4xl py-10">
-    //     Roommate Details
-    //   </h1>
-    //   <div className="p-5 md:p-10 w-full md:w-11/12 lg:w-10/12 mx-auto border border-[#f2ac08] rounded-2xl mb-20">
-    //     <p className="pb-5 text-center">
-    //       <span>{likeCount}</span> people interested in
-    //     </p>
-    //     <h1 className="text-[20px] text-center  bg-[#f2ac08] text-black py-2 mb-4">
-    //       {title}
-    //     </h1>
-    //     <div className="flex flex-col md:flex-row justify-between items-end gap-5">
-    //       <div>
-    //         <p>
-    //           <span className="font-bold">Name:</span> {name}
-    //         </p>
-    //         <p>
-    //           <span className="font-bold">Email:</span> {email}
-    //         </p>
-    //         {/* <p>
-    //           <span className="font-bold">Contact:</span> {contact}
-    //         </p> */}
-    //         <p>
-    //           <span className="font-bold">Location:</span> {location}
-    //         </p>
-    //         <p>
-    //           <span className="font-bold">Rent Amount:</span> {rentAmount}/mo
-    //         </p>
-    //         <p>
-    //           <span className="font-bold">Room Type:</span> {roomType}
-    //         </p>
-    //         <p>
-    //           <span className="font-bold">Lifestyle:</span> {lifestyle}
-    //         </p>
-    //         <p>
-    //           <span className="font-bold">Description:</span> {description}
-    //         </p>
-
-    //         <p>
-    //           <span className="font-bold">Availability:</span> {availability}
-    //         </p>
-    //         <p className="text-center text-[#f2ac08]">
-    //           Like this post for contact number!
-    //         </p>
-    //       </div>
-    //       <div className=" flex flex-col justify-end items-end gap-3">
-    //         <button onClick={handleLikeClick}>
-    //           <FaThumbsUp size={35} color={showContact ? "#f2ac08" : "gray"} />
-    //         </button>
-    //         {showContact && <p>{contact}</p>}
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
     <div className="max-w-7xl mx-auto p-6">
       <div className="border border-[#f2ac08] rounded-2xl overflow-hidden shadow-lg flex flex-col md:flex-row">
         {/* Image Section */}
@@ -166,10 +112,6 @@ const RoommateDetails = () => {
               <FaThumbsUp size={35} color={showContact ? "#f2ac08" : "gray"} />
             </button>
           </div>
-
-          <button className="bg-[#f2ac08] text-black px-6 py-2 rounded-lg hover:opacity-90 transition">
-            Contact Now
-          </button>
         </div>
       </div>
     </div>

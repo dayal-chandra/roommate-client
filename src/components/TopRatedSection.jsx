@@ -49,10 +49,6 @@ export default function TopRatedSection() {
               <p className="text-yellow-500 font-semibold">
                 ⭐ {roommate.rating}
               </p>
-
-              <button className="mt-3 bg-[#f2ac08] text-black px-4 py-2 rounded hover:opacity-90">
-                See Profile
-              </button>
             </div>
           </div>
         ))}
