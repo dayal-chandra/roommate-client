@@ -1,4 +1,4 @@
-import React, { use, useEffect } from "react";
+import React, { use, useEffect, useState } from "react";
 import logo from "/logo.png";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
@@ -34,6 +34,8 @@ const Header = () => {
     const savedTheme = localStorage.getItem("theme") || "light";
     document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);
+
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="navbar px-0 border-b border-[#f2ac084f] sticky top-0 backdrop-blur bg-transparent shadow z-50">
@@ -136,103 +138,80 @@ const Header = () => {
           </div>
         )}
 
-        <div className="drawer drawer-end">
-          <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content">
-            {/* Profile Picture (acts as drawer trigger) */}
-            {user && (
-              <label htmlFor="my-drawer-4" className="cursor-pointer">
-                <img
-                  className="w-12 h-12 rounded-full ml-4"
-                  src={user.photoURL}
-                  alt="Profile"
-                  data-tooltip-id="my-tooltip-inline"
-                  data-tooltip-content={user.displayName}
-                />
-              </label>
-            )}
-
-            <Tooltip
-              id="my-tooltip-inline"
-              style={{ backgroundColor: "#f2ac08", color: "black" }}
-            />
-          </div>
-
-          <div className="drawer-side">
-            <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-            <div className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
-              <h2 className="text-xl font-semibold mb-4">User Menu</h2>
-              <p>Name: {user?.displayName}</p>
-              <p>Email: {user?.email}</p>
-              {/* Add links, logout button, etc. here */}
-            </div>
-          </div>
-        </div>
-
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-44 p-2 shadow right-0"
-          >
-            <li>
-              <NavLink to="/" className="rounded-none">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="rounded-none" to="/add-to-find-roommate">
-                Add to Find Roommate
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="rounded-none" to="/browse-listing">
-                Browse Listings
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="rounded-none" to="/my-listings">
-                My Listings
-              </NavLink>
-            </li>
+        <div className="bg-base-100 px-2">
+          <div className="flex-1">
             {user ? (
-              <button
-                onClick={handleLogout}
-                className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold  md:hidden"
-              >
-                Logout
-              </button>
-            ) : (
-              <div className="md:hidden flex flex-col gap-3">
-                <Link to="/login">
-                  <button className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold">
-                    Login
-                  </button>
-                </Link>
-                <Link to="/signup">
-                  <button className=" text-[#f2ac08] border border-[#f2ac08] hover:bg-[#f2ac08] hover:text-black py-2 px-5 rounded-sm font-semibold">
-                    Signup
-                  </button>
-                </Link>
+              <div className="dropdown">
+                <div tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img
+                      src={`${user.photoURL}`}
+                      alt="profile"
+                      data-tooltip-id="my-tooltip-inline"
+                      data-tooltip-content={`${user ? user.displayName : ""}`}
+                      data-tooltip-place="top"
+                    />
+                    <Tooltip
+                      id="my-tooltip-inline"
+                      place="top"
+                      style={{ backgroundColor: "#f2ac08", color: "black" }}
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-44 p-2 shadow right-0"
+                >
+                  <li>
+                    <NavLink to="/dashboard" className="rounded-none">
+                      Dashboard
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className="rounded-none"
+                      to="/add-to-find-roommate"
+                    >
+                      Add to Find Roommate
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="rounded-none" to="/browse-listing">
+                      Browse Listings
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink className="rounded-none" to="/my-listings">
+                      My Listings
+                    </NavLink>
+                  </li>
+                  {user ? (
+                    <button
+                      onClick={handleLogout}
+                      className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold  md:hidden"
+                    >
+                      Logout
+                    </button>
+                  ) : (
+                    <div className="md:hidden flex flex-col gap-3">
+                      <Link to="/login">
+                        <button className="bg-[#f2ac08] hover:bg-transparent  hover:text-[#f2ac08] border border-[#f2ac08] text-black py-2 px-5 rounded-sm font-semibold">
+                          Login
+                        </button>
+                      </Link>
+                      <Link to="/signup">
+                        <button className=" text-[#f2ac08] border border-[#f2ac08] hover:bg-[#f2ac08] hover:text-black py-2 px-5 rounded-sm font-semibold">
+                          Signup
+                        </button>
+                      </Link>
+                    </div>
+                  )}
+                </ul>
               </div>
+            ) : (
+              ""
             )}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

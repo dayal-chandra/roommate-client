@@ -14,6 +14,9 @@ import Loading from "../components/Loading";
 import UpdateRoommate from "../pages/UpdateRoommate";
 import AboutUs from "../pages/AboutUs";
 import Contact from "../pages/Contact";
+import Dashboard from "../pages/Dashboard";
+import Overview from "../pages/Overview";
+import AllItems from "../pages/AllItems";
 
 export const router = createBrowserRouter([
   {
@@ -95,6 +98,24 @@ export const router = createBrowserRouter([
             <UpdateRoommate></UpdateRoommate>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
+        children: [
+          {
+            index: true,
+            element: <Overview />,
+          },
+          {
+            path: "all-items",
+            element: <AllItems />,
+          },
+        ],
       },
     ],
   },
